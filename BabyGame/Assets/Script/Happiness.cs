@@ -3,7 +3,7 @@ using UnityEngine;
 public class Happiness : MonoBehaviour
 {
     [SerializeField] private float happiness = 100f;
-    [SerializeField] public float changeRate;
+    [SerializeField] public float changeRate = 0.027f;
     // %100 iken mutlu, %0 iken mutsuz.
 
     public float getHappiness()
@@ -46,7 +46,7 @@ public class Happiness : MonoBehaviour
         if (happiness >= 0f && happiness <= 100f)
         {
             decreaseHappiness(changeRate);
-            Debug.Log($"DeltaTime: {Time.deltaTime}");
+            //Debug.Log($"DeltaTime: {Time.deltaTime}");
         }
         else
         {
