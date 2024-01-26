@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   happiness: 100
-  changeRate: 0.09
+  changeRate: 0.037
 --- !u!1 &1605591578
 GameObject:
   m_ObjectHideFlags: 0
