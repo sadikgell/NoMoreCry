@@ -19,7 +19,7 @@ public class TimeController : MonoBehaviour
         { 
             if (!(remainingTime <= 0f))
             {
-                Debug.Log($"Remaining Time: {remainingTime}, Remaining Time Text: {remainingTimeText}");
+                //Debug.Log($"Remaining Time: {remainingTime}, Remaining Time Text: {remainingTimeText}");
                 updateTime(speedUp); 
             }
             else
