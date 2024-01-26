@@ -6,7 +6,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private float remainingTime = 300f; // 5 dakika.
     [SerializeField] private Boolean gameRunningState = false; 
     public float speedUp = 0f; 
-    public string remainingTimeText = "05:00"; // Timer'ý oyun içinde kullanýrken direkt bu deðiþkeni kullanýn.
+    public string remainingTimeText = "5:00"; // Timer'ý oyun içinde kullanýrken direkt bu deðiþkeni kullanýn.
      
     void Start()
     {
@@ -17,8 +17,9 @@ public class TimeController : MonoBehaviour
     {
         if (gameRunningState)
         { 
-            if (remainingTime <= 0)
+            if (!(remainingTime <= 0f))
             {
+                Debug.Log($"Remaining Time: {remainingTime}, Remaining Time Text: {remainingTimeText}");
                 updateTime(speedUp); 
             }
             else
@@ -30,8 +31,9 @@ public class TimeController : MonoBehaviour
 
     private void GetRemainingTime()
     {
-        TimeSpan timeSpan = TimeSpan.FromSeconds(remainingTime);
-        remainingTimeText = timeSpan.ToString(@"mm:ss"); 
+        int minutes = Mathf.FloorToInt(remainingTime / 60F);
+        int seconds = Mathf.FloorToInt(remainingTime - minutes * 60);
+        remainingTimeText = string.Format("{0:0}:{1:00}", minutes, seconds);
     }
 
     private void updateTime(float speedup) 
