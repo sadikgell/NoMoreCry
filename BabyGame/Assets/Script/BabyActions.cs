@@ -32,7 +32,6 @@ public class BabyActions : MonoBehaviour
             MakeBabySad();
             Destroy(other.gameObject);
         }
-
     } 
 
     private void MakeBabyHappy()
