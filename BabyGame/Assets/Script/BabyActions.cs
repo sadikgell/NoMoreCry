@@ -3,21 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class BabyActions : MonoBehaviour
-{
-
+{ 
+    public int foodCounter = 0;
+    public List<AudioClip> babyVoices = new List<AudioClip>();
+    private AudioSource babyAudioSource;
     private BoxCollider babyCollider;
     private Happiness happiness;
     private Interaction interaction;
-    public int foodCounter = 0;
     private Boolean firstChocolate = true;
+    [SerializeField] private float counter = 0f;
+    [SerializeField] private Boolean actionAvailable = true;
  
     void Start()
     {
         babyCollider = GetComponent<BoxCollider>();
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
         interaction = GameObject.Find("Main Camera").GetComponent<Interaction>(); 
+        babyAudioSource = GetComponent<AudioSource>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -49,36 +54,40 @@ public class BabyActions : MonoBehaviour
     }
 
     // TODO: React animations.
-    void BabyHappyReact() 
+    public void BabyHappyReact() 
     {
-        //Debug.Log("Happy react.");
+        babyAudioSource.PlayOneShot(babyVoices[0]);
     }
 
-    void BabySadReact()
+    public void BabySadReact()
     {
-        //Debug.Log("Sad react.");
+        babyAudioSource.PlayOneShot(babyVoices[1]);
     }
 
-    void BabyNeutralReact()
+    public void BabyNeutralReact()
     {
-        //Debug.Log("Neutral react.");
+        babyAudioSource.PlayOneShot(babyVoices[2]);
     }
 
 
     void FixedUpdate()
     {
-        if (happiness.getHappiness() > 70f)
+        if (actionAvailable)
         {
-            BabyHappyReact();
-        }
-        else if(happiness.getHappiness() < 30f)
-        {
-            BabySadReact();
-        }
-        else
-        {
-            BabyNeutralReact();
-        }
+            if (happiness.getHappiness() > 70f)
+            {
+                BabyHappyReact();
+            }
+            else if (happiness.getHappiness() < 30f)
+            {
+                BabySadReact();
+            }
+            else
+            {
+                BabyNeutralReact();
+            }
+            actionAvailable = false;
+        } 
     }
 
     void FoodOrToyCheck(GameObject gameObject)
@@ -106,5 +115,15 @@ public class BabyActions : MonoBehaviour
         {
             //Do nothing.
         }
+    }
+     
+    private void Counter()
+    {
+        if (counter <= 0f)
+        {
+            counter = 12f;
+            actionAvailable = true;
+        }
+        counter -= Time.deltaTime;
     }
 }

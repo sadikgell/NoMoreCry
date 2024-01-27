@@ -1646,6 +1646,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodCounter: 0
+  babyVoices:
+  - {fileID: 8300000, guid: 30a9ad827b02b5c43a44e84bd811b2c9, type: 3}
+  - {fileID: 8300000, guid: d82426759599fbb48ad292e1db250ae3, type: 3}
+  - {fileID: 8300000, guid: 085ef26ca696092489dbf1f08dcde36b, type: 3}
 --- !u!1 &205351734
 GameObject:
   m_ObjectHideFlags: 0
