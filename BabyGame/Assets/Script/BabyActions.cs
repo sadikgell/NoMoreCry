@@ -27,7 +27,7 @@ public class BabyActions : MonoBehaviour
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
         interaction = GameObject.Find("Main Camera").GetComponent<Interaction>(); 
         babyAudioSource = GetComponent<AudioSource>();
-        anim = GetComponent<Animator>();
+        anim = GameObject.Find("Armature").GetComponent<Animator>();
         state = AnimationState.idle;
     }
 
