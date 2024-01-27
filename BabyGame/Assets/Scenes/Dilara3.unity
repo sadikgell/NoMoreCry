@@ -420,7 +420,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Developers :             Sad\u0131k GEL  \n                          
-    \t   Mustafa M. Y\xD6N\xDCG\xDCL       \n\t\t\t   Semih G\xDCNER\n\t\t\t"
+    \t   Mustafa Mansur Y\xD6N\xDCG\xDCL       \n\t\t\t   Semih G\xDCNER\n\t\t\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -326.14517, w: 0}
+  m_margin: {x: 0, y: 0, z: -410.35275, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
