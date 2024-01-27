@@ -850,6 +850,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7661395990766367883}
+  - component: {fileID: 7550006795246812847}
+  - component: {fileID: 8435280142044289332}
   m_Layer: 0
   m_Name: Hurc
   m_TagString: Untagged
@@ -865,7 +867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6548036830270508283}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9725023, z: -0, w: 0.23289363}
+  m_LocalRotation: {x: 0, y: 0.97250223, z: 0, w: 0.23289376}
   m_LocalPosition: {x: 29.556, y: 1.205, z: 8.837}
   m_LocalScale: {x: 0.91183, y: 1, z: 0.7322043}
   m_ConstrainProportionsScale: 0
@@ -877,6 +879,40 @@ Transform:
   - {fileID: 1287770450897139564}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 153.065, z: 0}
+--- !u!114 &7550006795246812847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548036830270508283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6393d1b204fd10b4887aae3912f8e0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Toys: {fileID: 0}
+--- !u!65 &8435280142044289332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548036830270508283}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6570606, y: 1.5743645, z: 3.0954146}
+  m_Center: {x: 1.5884272, y: -0.04128927, z: -0.08623327}
 --- !u!1 &7082665471086711272
 GameObject:
   m_ObjectHideFlags: 0
