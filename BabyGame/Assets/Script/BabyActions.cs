@@ -27,7 +27,7 @@ public class BabyActions : MonoBehaviour
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
         interaction = GameObject.Find("Main Camera").GetComponent<Interaction>(); 
         babyAudioSource = GetComponent<AudioSource>();
-        anim = GameObject.Find("Armature").GetComponent<Animator>();
+        anim = GameObject.Find("BebeArmature").GetComponent<Animator>();
         state = AnimationState.idle;
         smr = GameObject.Find("BebeHead").GetComponent<SkinnedMeshRenderer>();
     }
@@ -137,7 +137,7 @@ public class BabyActions : MonoBehaviour
     {
         if (actionAvailable)
         {
-            babyAudioSource.Stop();
+            //babyAudioSource.Stop();
             if (happiness.getHappiness() > 70f)
             {
                 
@@ -147,11 +147,11 @@ public class BabyActions : MonoBehaviour
             {
                 BabySadReact();
             }
-            else if (happiness.getHappiness() > 0f)
+            else if (happiness.getHappiness() > 30f)
             {
                 BabyNeutralReact();
             }
-            else
+            else if(happiness.getHappiness() < 5f)
             {
                 BabyCry();
             }

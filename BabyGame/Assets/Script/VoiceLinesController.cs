@@ -47,7 +47,7 @@ public class VoiceLinesController : MonoBehaviour
             actionAvailable = false;
             //ebug.Log("Mutlu.");
         }
-        else if (happiness.getHappiness() <= 30f && actionAvailable)
+        else if (happiness.getHappiness() <= 15f && actionAvailable)
         {
             System.Random random = new System.Random();
             int randomIndex = random.Next(1, 3);
