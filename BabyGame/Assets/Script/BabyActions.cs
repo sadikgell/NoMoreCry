@@ -9,6 +9,7 @@ public class BabyActions : MonoBehaviour
     private BoxCollider babyCollider;
     private Happiness happiness;
     private Interaction interaction;
+    public int foodCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -100,6 +101,7 @@ public class BabyActions : MonoBehaviour
         else if(gameObject.transform.parent.gameObject.name == "Food")
         {
             Debug.Log("Bu bir yiyecek, yiyorum.");
+            foodCounter++;
             Destroy(gameObject);
         }
         else
