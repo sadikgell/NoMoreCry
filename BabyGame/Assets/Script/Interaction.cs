@@ -21,16 +21,16 @@ public class Interaction : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         RaycastHit hit;
 
-        
+
 
 
         if (Physics.Raycast(transform.position, forward, out hit))
         {
             Debug.DrawLine(transform.position, hit.point, Color.red);
 
-            if (hit.distance <= distance && 
+            if (hit.distance <= distance &&
                 (hit.collider.gameObject.tag == "InteractNeg" ||
-                hit.collider.gameObject.tag == "InteractPos" || 
+                hit.collider.gameObject.tag == "InteractPos" ||
                 hit.collider.gameObject.tag == "Baby"))
             {
                 if (Input.GetKeyDown(KeyCode.F))
@@ -43,7 +43,7 @@ public class Interaction : MonoBehaviour
                         //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false; 
                         hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-                        if(hit.collider.gameObject.tag == "Baby")
+                        if (hit.collider.gameObject.tag == "Baby")
                         {
                             isInteractBaby = true;
                         }
@@ -51,7 +51,7 @@ public class Interaction : MonoBehaviour
                     }
                     //Debug.Log($"isInteract :{isInteract}");
                     //Debug.Log($"interactableObject :{interactableObject}");
-                } 
+                }
             }
         }
 
@@ -68,7 +68,7 @@ public class Interaction : MonoBehaviour
             float distanceToInitialPosition = Vector3.Distance(interactableObject.transform.position, initialObjectPosition);
             float playerToInitialPositionDistance = Vector3.Distance(transform.position, initialObjectPosition);
 
-            
+
 
             if (distanceToInitialPosition <= dropDistanceThreshold && playerToInitialPositionDistance <= maxDropDistance)
             {
@@ -76,7 +76,7 @@ public class Interaction : MonoBehaviour
                 interactableObject.transform.position = initialObjectPosition;
                 isInteract = false;
 
-                if(isInteractBaby) isInteractBaby = false;
+                if (isInteractBaby) isInteractBaby = false;
             }
         }
     }
