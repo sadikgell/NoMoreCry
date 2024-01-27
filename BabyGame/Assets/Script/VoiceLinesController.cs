@@ -4,11 +4,11 @@ using UnityEngine;
 public class VoiceLinesController : MonoBehaviour
 {
     private AudioSource audioSource;
+    private Happiness happiness;
     public AudioClip[] voiceLines;
     public Boolean fedChocolate = false;
-    public Boolean actionAvailable = true;
-    private Boolean gameJustStarted = true;
-    private Happiness happiness;    
+    public Boolean actionAvailable = false;
+    [SerializeField] private Boolean gameJustStarted = true;
     [SerializeField] private float counter = 15f;
 
     // Start is called before the first frame update
@@ -27,22 +27,25 @@ public class VoiceLinesController : MonoBehaviour
     
     void FixedUpdate()
     {
-        Counter();
-
-        if (fedChocolate)
-        {
-            audioSource.PlayOneShot(voiceLines[5]); // chocolate
-            fedChocolate = false;
-        }
+        Counter(); 
 
         if (gameJustStarted)
         {
             audioSource.PlayOneShot(voiceLines[0]); // here we go again.
             gameJustStarted = false;
+            Debug.Log("Oyun baþladý.");
+        }
+        else if(fedChocolate)
+        {
+            audioSource.PlayOneShot(voiceLines[5]); // chocolate
+            fedChocolate = false;
+            Debug.Log("Çikolata verildi.");
         }
         else if (happiness.getHappiness() >= 75f && actionAvailable)
         {
             audioSource.PlayOneShot(voiceLines[1]); // aint half bad
+            actionAvailable = false;
+            Debug.Log("Mutlu.");
         }
         else if (happiness.getHappiness() <= 30f && actionAvailable)
         {
@@ -56,8 +59,9 @@ public class VoiceLinesController : MonoBehaviour
             {
                 audioSource.PlayOneShot(voiceLines[4]); // luck you
             }
-        }
-
+            actionAvailable = false;
+            Debug.Log("Mutsuz.");
+        } 
         //TODO: Else if oyun biterse, bitiþ sesini oynat , 2 ve 3.
         //TODO: Else if kazanýrsak, kazanma sesi, 7. 
     }
@@ -66,7 +70,7 @@ public class VoiceLinesController : MonoBehaviour
     {
         if (counter <= 0f)
         { 
-            counter = 15f;
+            counter = 10f;
             actionAvailable = true;
         }
         counter -= Time.deltaTime;

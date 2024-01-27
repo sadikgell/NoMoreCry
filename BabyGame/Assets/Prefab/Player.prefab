@@ -283,7 +283,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 93e4c84394951224eb78172797494b4c, type: 3}
   - {fileID: 8300000, guid: 32fc48127ea7517478c4ba970c7f4dc3, type: 3}
   - {fileID: 8300000, guid: 53f8f4b505074cf4181909e810bae1a9, type: 3}
-  counter: 0
+  fedChocolate: 0
+  actionAvailable: 0
+  gameJustStarted: 1
+  counter: 10
 --- !u!82 &5301457106587416210
 AudioSource:
   m_ObjectHideFlags: 0
@@ -291,7 +294,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8567673480332412374}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
