@@ -8,7 +8,7 @@ public class Interaction : MonoBehaviour
     public Image crosshair;
     public float distance;
     public bool isInteract = false;
-    private GameObject interactableObject;
+    public GameObject interactableObject;
     private Vector3 initialObjectPosition;
     public float maxDistanceFromPlayer = 0.5f;
     public float dropDistanceThreshold = 1.5f;
@@ -18,6 +18,9 @@ public class Interaction : MonoBehaviour
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         RaycastHit hit;
+
+        
+
 
         if (Physics.Raycast(transform.position, forward, out hit))
         {
@@ -33,11 +36,8 @@ public class Interaction : MonoBehaviour
                         initialObjectPosition = interactableObject.transform.position;
                         isInteract = true;
                     }
-                    else
-                    {
-                        interactableObject = null;
-                        isInteract = false;
-                    }
+                    Debug.Log($"isInteract :{isInteract}");
+                    Debug.Log($"interactableObject :{interactableObject}");
                 }
             }
         }

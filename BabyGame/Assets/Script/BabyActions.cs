@@ -8,11 +8,13 @@ public class BabyActions : MonoBehaviour
 
     private BoxCollider babyCollider;
     private Happiness happiness;
+    private Interaction interaction;
     // Start is called before the first frame update
     void Start()
     {
         babyCollider = GetComponent<BoxCollider>();
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
+        interaction = GameObject.Find("Main Camera").GetComponent<Interaction>();
         //Debug.Log($"{babyCollider.gameObject.name},{happiness.gameObject.name}");
     }
 
@@ -25,12 +27,14 @@ public class BabyActions : MonoBehaviour
             //Debug.Log("Bebeði mutlu ettiniz.");
             MakeBabyHappy();
             Destroy(other.gameObject);
+            InteractionClear();
         }
         else if (other.gameObject.CompareTag("InteractNeg"))
         {
             //Debug.Log("Bebeði mutsuz ettiniz.");
             MakeBabySad();
             Destroy(other.gameObject);
+            InteractionClear();
         }
     } 
 
@@ -58,6 +62,16 @@ public class BabyActions : MonoBehaviour
     {
         //Debug.Log("Neutral react.");
     }
+
+
+    //Interaction scriptinde düzenleme
+    void InteractionClear()
+    {
+        Debug.Log("keke");
+        interaction.isInteract = false;
+        interaction.interactableObject = null;
+    }
+
 
     void FixedUpdate()
     {
