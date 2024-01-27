@@ -73,16 +73,16 @@ public class Happiness : MonoBehaviour
         {
             if (happiness >= 80f)
             {
-                timeController.speedUp = 0.5f;
+                timeController.speedUp = 0.01f;
             }
             else if (happiness >= 30f)
             {
                 timeController.speedUp = 0f;
             }
-            else
-            {
-                timeController.speedUp = -0.5f;
-            }
+            //else
+            //{
+            //    timeController.speedUp = -0.1f;
+            //}
         }
     }
 }
