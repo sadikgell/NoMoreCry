@@ -4,6 +4,7 @@ public class Happiness : MonoBehaviour
 {
     [SerializeField] private float happiness = 100f;
     [SerializeField] public float changeRate = 0.027f;
+    private TimeController timeController;
     // %100 iken mutlu, %0 iken mutsuz.
 
     public float getHappiness()
@@ -50,17 +51,38 @@ public class Happiness : MonoBehaviour
         else
         {
             checkHappiness();
-        }
+        } 
     }
 
     void Start()
     {
         // lazým olursa doldurun.
+        timeController = GameObject.Find("GameManager").GetComponent<TimeController>();
     }
 
     void FixedUpdate()
     {
         ChangeHappiness();
 
+        TimerSpeedupOnHappiness();
+    }
+
+    private void TimerSpeedupOnHappiness()
+    {
+        if (timeController.getGameRunningState())
+        {
+            if (happiness >= 80f)
+            {
+                timeController.speedUp = 8f;
+            }
+            else if (happiness >= 30f)
+            {
+                timeController.speedUp = 0f;
+            }
+            else
+            {
+                timeController.speedUp = -8f;
+            }
+        }
     }
 }
