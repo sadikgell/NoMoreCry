@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
     public float rayFromMiddle = 0.9f;
-    public float rayLength = 0.13f; 
+    public float rayLength = 0.13f;
+    public AudioClip footstepsClip;
 
     private CharacterController characterController; 
     private bool isSprinting = false;
@@ -68,19 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckSprintInput()
     {
-        isSprinting = Input.GetKey(KeyCode.LeftShift);
-
-        /* 
-         * Bu da, yukarýdaki de boolean döndürüyor, buna hiç gerek yok.
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isSprinting = true;
-        }
-        else
-        {
-            isSprinting = false;
-        }
-        */
+        isSprinting = Input.GetKey(KeyCode.LeftShift); 
     }
 
     private Vector3 CalculateMoveDirection(float horizontalInput, float verticalInput)
@@ -118,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
             return true; 
         }  
         return false;
+    }
+
+    void PlayFootsteps()
+    {
+        AudioSource.PlayClipAtPoint(footstepsClip, currentLocation);
     }
 
 }
