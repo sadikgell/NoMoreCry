@@ -10,6 +10,7 @@ public class BabyActions : MonoBehaviour
     public int babeSwingLimit = 5;
     public int foodCounter = 0;
     public List<AudioClip> babyVoices = new List<AudioClip>();
+    public List<Material> materials = new List<Material>();
     private AudioSource babyAudioSource;
     private BoxCollider babyCollider;
     private Happiness happiness;
@@ -20,6 +21,7 @@ public class BabyActions : MonoBehaviour
     private Animator anim; 
     private enum AnimationState { idle, laughing, bored, sleeping }
     private AnimationState state;
+    private SkinnedMeshRenderer smr; 
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class BabyActions : MonoBehaviour
         babyAudioSource = GetComponent<AudioSource>();
         anim = GameObject.Find("Armature").GetComponent<Animator>();
         state = AnimationState.idle;
+        smr = GameObject.Find("Cube").GetComponent<SkinnedMeshRenderer>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -60,7 +63,7 @@ public class BabyActions : MonoBehaviour
     }
      
     public void BabyHappyReact() 
-    {
+    { 
         babyAudioSource.PlayOneShot(babyVoices[0]);
         state = AnimationState.laughing;
         anim.SetInteger("state", (int)state);
