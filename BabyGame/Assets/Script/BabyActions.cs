@@ -10,7 +10,7 @@ public class BabyActions : MonoBehaviour
     public int babeSwingLimit = 5;
     public int foodCounter = 0;
     public List<AudioClip> babyVoices = new List<AudioClip>();
-    public List<Material> materials = new List<Material>();
+    public List<Material> deriler = new List<Material>();
     private AudioSource babyAudioSource;
     private BoxCollider babyCollider;
     private Happiness happiness;
@@ -64,7 +64,7 @@ public class BabyActions : MonoBehaviour
      
     public void BabyHappyReact() 
     {
-        smr.SetMaterials(materials);
+        smr.SetMaterials(new List<Material> { deriler[2] });
         babyAudioSource.PlayOneShot(babyVoices[0]);
         state = AnimationState.laughing;
         anim.SetInteger("state", (int)state);
@@ -72,6 +72,7 @@ public class BabyActions : MonoBehaviour
 
     public void BabySadReact()
     {
+        smr.SetMaterials(new List<Material> { deriler[0] });
         babyAudioSource.PlayOneShot(babyVoices[3]); 
         state = AnimationState.bored;
         anim.SetInteger("state", (int)state);
@@ -79,6 +80,7 @@ public class BabyActions : MonoBehaviour
 
     public void BabyNeutralReact()
     {
+        smr.SetMaterials(new List<Material> { deriler[3] });
         babyAudioSource.PlayOneShot(babyVoices[1]);
         state = AnimationState.sleeping;
         anim.SetInteger("state", (int)state);
@@ -123,6 +125,7 @@ public class BabyActions : MonoBehaviour
 
     void BabyCry()
     {
+        smr.SetMaterials(new List<Material> { deriler[1] });
         babyAudioSource.PlayOneShot(babyVoices[2]);
         anim.SetTrigger("Cry"); 
         //TODO: Game over ekraný.
