@@ -219,8 +219,8 @@ MonoBehaviour:
   sensitivity: 2
   jumpHeight: 1.3
   gravityValue: -9.81
-  rayFromMiddle: 1.4
-  rayLength: 0.45
+  rayFromMiddle: 1.45
+  rayLength: 0.65
 --- !u!114 &2681129258948885271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +290,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8567673480332412374}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
