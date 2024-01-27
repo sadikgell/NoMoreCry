@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
         taskManager = GetComponent<TaskManager>();
 
         toys = GameObject.Find("Toys");
-        toyCount = toys.transform.childCount; 
+        toyCount = 1;
+        Debug.Log(toyCount);
 
     }
 
@@ -27,12 +28,12 @@ public class GameManager : MonoBehaviour
         {
             taskManager.CompleteTask(taskManager.tasks[0]);
             babyActions.foodCounter = -1;
+            
         }
         if (inCaseToy == toyCount)
-        {
-            
+        { 
             taskManager.CompleteTask(taskManager.tasks[1]);
         }
-        
+
     }
 }

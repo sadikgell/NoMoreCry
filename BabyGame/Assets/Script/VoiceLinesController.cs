@@ -33,19 +33,19 @@ public class VoiceLinesController : MonoBehaviour
         {
             audioSource.PlayOneShot(voiceLines[0]); // here we go again.
             gameJustStarted = false;
-            Debug.Log("Oyun baþladý.");
+            //Debug.Log("Oyun baþladý.");
         }
         else if(fedChocolate)
         {
             audioSource.PlayOneShot(voiceLines[5]); // chocolate
             fedChocolate = false;
-            Debug.Log("Çikolata verildi.");
+            //Debug.Log("Çikolata verildi.");
         }
         else if (happiness.getHappiness() >= 75f && actionAvailable)
         {
             audioSource.PlayOneShot(voiceLines[1]); // aint half bad
             actionAvailable = false;
-            Debug.Log("Mutlu.");
+            //ebug.Log("Mutlu.");
         }
         else if (happiness.getHappiness() <= 30f && actionAvailable)
         {
@@ -60,7 +60,7 @@ public class VoiceLinesController : MonoBehaviour
                 audioSource.PlayOneShot(voiceLines[4]); // luck you
             }
             actionAvailable = false;
-            Debug.Log("Mutsuz.");
+            //Debug.Log("Mutsuz.");
         } 
         //TODO: Else if oyun biterse, bitiþ sesini oynat , 2 ve 3.
         //TODO: Else if kazanýrsak, kazanma sesi, 7. 
