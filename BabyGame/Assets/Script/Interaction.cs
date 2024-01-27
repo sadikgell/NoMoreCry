@@ -10,7 +10,7 @@ public class Interaction : MonoBehaviour
     public bool isInteract = false;
     public GameObject interactableObject;
     private Vector3 initialObjectPosition;
-    public float maxDistanceFromPlayer = 0.5f;
+    public float maxDistanceFromPlayer = 1.5f;
     public float dropDistanceThreshold = 1.5f;
     public float maxDropDistance = 5f;
 
