@@ -38,8 +38,8 @@ public class Interaction : MonoBehaviour
                         //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false; 
                         hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     }
-                    Debug.Log($"isInteract :{isInteract}");
-                    Debug.Log($"interactableObject :{interactableObject}");
+                    //Debug.Log($"isInteract :{isInteract}");
+                    //Debug.Log($"interactableObject :{interactableObject}");
                 } 
             }
         }
@@ -66,5 +66,10 @@ public class Interaction : MonoBehaviour
                 isInteract = false;
             }
         }
-    } 
+    }
+    public void InteractionClear()
+    {
+        isInteract = false;
+        interactableObject = null;
+    }
 }
