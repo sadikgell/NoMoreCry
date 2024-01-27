@@ -8,7 +8,7 @@ public class ChocolateReactions : MonoBehaviour
     [SerializeField] private GameObject chocolateItself;
     void Start()
     {
-        chocolateItself = GetComponent<GameObject>();
+        chocolateItself = this.gameObject;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,10 +23,9 @@ public class ChocolateReactions : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (remaining == 0)
+        if (remaining <= 0)
         {
-            Destroy(chocolateItself);
-            
+            Destroy(chocolateItself); 
         }
     }
 }

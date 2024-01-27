@@ -10,18 +10,17 @@ public class BabyActions : MonoBehaviour
     private Happiness happiness;
     private Interaction interaction;
     public int foodCounter = 0;
-    // Start is called before the first frame update
+ 
     void Start()
     {
         babyCollider = GetComponent<BoxCollider>();
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
-        interaction = GameObject.Find("Main Camera").GetComponent<Interaction>();
-        //Debug.Log($"{babyCollider.gameObject.name},{happiness.gameObject.name}");
+        interaction = GameObject.Find("Main Camera").GetComponent<Interaction>(); 
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        //Debug.Log($"Trigger entered. Colliding object tag: {other.gameObject.tag}");
+
 
         if (other.gameObject.CompareTag("InteractPos"))
         {
@@ -49,6 +48,7 @@ public class BabyActions : MonoBehaviour
         happiness.decreaseHappiness(5);
     }
 
+    // TODO: React animations.
     void BabyHappyReact() 
     {
         //Debug.Log("Happy react.");

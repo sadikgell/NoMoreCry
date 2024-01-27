@@ -45,8 +45,7 @@ public class Happiness : MonoBehaviour
     {
         if (happiness >= 0f && happiness <= 100f)
         {
-            decreaseHappiness(changeRate);
-            //Debug.Log($"DeltaTime: {Time.deltaTime}");
+            decreaseHappiness(changeRate); 
         }
         else
         {
