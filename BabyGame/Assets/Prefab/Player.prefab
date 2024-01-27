@@ -146,7 +146,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.16, y: 1.376, z: -0.11}
-  m_LocalScale: {x: 0.92236674, y: 1.8147938, z: 0.92236674}
+  m_LocalScale: {x: 0.92236674, y: 2.0532577, z: 0.92236674}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5467927419429953258}
@@ -219,8 +219,9 @@ MonoBehaviour:
   sensitivity: 2
   jumpHeight: 1.3
   gravityValue: -9.81
-  rayFromMiddle: 1.4
-  rayLength: 0.45
+  rayFromMiddle: 1.45
+  rayLength: 0.65
+  footstepsClip: {fileID: 8300000, guid: b80cae4f86235664fb23bf9afbf1f9b6, type: 3}
 --- !u!114 &2681129258948885271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,8 +282,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 20f5b9808d7cddc47a1eaccadff150e1, type: 3}
   - {fileID: 8300000, guid: 948569d755c745746a7d187c57c283a6, type: 3}
   - {fileID: 8300000, guid: 93e4c84394951224eb78172797494b4c, type: 3}
-  - {fileID: 8300000, guid: 53f8f4b505074cf4181909e810bae1a9, type: 3}
   - {fileID: 8300000, guid: 32fc48127ea7517478c4ba970c7f4dc3, type: 3}
+  - {fileID: 8300000, guid: 53f8f4b505074cf4181909e810bae1a9, type: 3}
+  fedChocolate: 0
+  actionAvailable: 0
+  gameJustStarted: 1
+  counter: 10
 --- !u!82 &5301457106587416210
 AudioSource:
   m_ObjectHideFlags: 0

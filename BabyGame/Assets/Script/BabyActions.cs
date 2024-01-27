@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +11,7 @@ public class BabyActions : MonoBehaviour
     private Happiness happiness;
     private Interaction interaction;
     public int foodCounter = 0;
+    private Boolean firstChocolate = true;
  
     void Start()
     {
@@ -19,22 +21,20 @@ public class BabyActions : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other)
-    {
-
-
+    { 
         if (other.gameObject.CompareTag("InteractPos"))
         {
             //Debug.Log("Bebeði mutlu ettiniz.");
             MakeBabyHappy();
             FoodOrToyCheck(other.gameObject);
-            InteractionClear();
+            interaction.InteractionClear();
         }
         else if (other.gameObject.CompareTag("InteractNeg"))
         {
             //Debug.Log("Bebeði mutsuz ettiniz.");
             MakeBabySad();
             FoodOrToyCheck(other.gameObject);
-            InteractionClear();
+            interaction.InteractionClear();
         }
     } 
 
@@ -62,14 +62,6 @@ public class BabyActions : MonoBehaviour
     void BabyNeutralReact()
     {
         //Debug.Log("Neutral react.");
-    }
-
-
-    //Interaction scriptinde düzenleme
-    void InteractionClear()
-    { 
-        interaction.isInteract = false;
-        interaction.interactableObject = null;
     }
 
 
@@ -102,6 +94,12 @@ public class BabyActions : MonoBehaviour
         {
             Debug.Log("Bu bir yiyecek, yiyorum.");
             foodCounter++;
+            if (gameObject.name == "GameJamChocolate" && firstChocolate)
+            {
+                GameObject.Find("Player").GetComponent<VoiceLinesController>().fedChocolate = true;
+                firstChocolate = false;
+                Debug.Log("Kutsal çikolata verildi.");
+            }
             Destroy(gameObject);
         }
         else
