@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5467927419429953258}
   - component: {fileID: 2586206669833663657}
   - component: {fileID: 5427831044083620573}
+  - component: {fileID: 3212493974852905651}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -92,6 +93,25 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348014411798705037}
   m_Enabled: 1
+--- !u!114 &3212493974852905651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348014411798705037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46857592e0bf714489a6dd9f9921bf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
+  distance: 10
+  isInteract: 0
+  interactableObject: {fileID: 0}
+  maxDistanceFromPlayer: 1.5
+  dropDistanceThreshold: 1.5
+  maxDropDistance: 5
 --- !u!1 &8567673480332412374
 GameObject:
   m_ObjectHideFlags: 0
