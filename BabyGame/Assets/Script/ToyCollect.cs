@@ -7,8 +7,10 @@ public class ToyCollect : MonoBehaviour
 
     public GameObject Toys;
     private GameManager gameManager;
-
     private Interaction interaciton;
+
+    
+    private int ToyNumber=0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,22 @@ public class ToyCollect : MonoBehaviour
         
         if (other.gameObject.transform.parent.name == "Toys")
         {
-            Destroy(other.gameObject);
+
+            if (ToyNumber == 0) 
+            {
+                other.gameObject.transform.position = new Vector3(14.628f, -2.188f, -16.114f);
+                other.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 133.428f, 0));
+                ToyNumber++;
+            }
+            if (ToyNumber == 1)
+            {
+                //toyLocation
+            }
+            
+            
+
+
+
             gameManager.inCaseToy += 1;
             interaciton.InteractionClear();
             Debug.Log(gameManager.inCaseToy);
