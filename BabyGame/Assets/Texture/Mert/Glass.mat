@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON
+  - _SPECULARHIGHLIGHTS_OFF
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -31,7 +32,8 @@ Material:
     - _Glossiness: 0.52
     - _Metallic: 0.62
     - _Mode: 3
+    - _SpecularHighlights: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.16687435, g: 0.2055892, b: 0.2830189, a: 0}
+    - _Color: {r: 0.053844776, g: 0.066412136, b: 0.09433961, a: 0}
   m_BuildTextureStacks: []
