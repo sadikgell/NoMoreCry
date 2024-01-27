@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         //jump mekaniði. 
 
-        Debug.Log($"Character Ground Mu: {IsGrounded()}");
+        //Debug.Log($"Character Ground Mu: {IsGrounded()}");
 
         if (IsGrounded() && (playerVelocity.y < 0))
         {
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
           
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            Debug.Log($"Zýplýyoruz.");
+            //Debug.Log($"Zýplýyoruz.");
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 

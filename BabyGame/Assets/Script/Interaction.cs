@@ -56,7 +56,7 @@ public class Interaction : MonoBehaviour
             float distanceToInitialPosition = Vector3.Distance(interactableObject.transform.position, initialObjectPosition);
             float playerToInitialPositionDistance = Vector3.Distance(transform.position, initialObjectPosition);
 
-            hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            interactableObject.GetComponent<Collider>().gameObject.GetComponent<Rigidbody>().useGravity = true;
 
             if (distanceToInitialPosition <= dropDistanceThreshold && playerToInitialPositionDistance <= maxDropDistance)
             {

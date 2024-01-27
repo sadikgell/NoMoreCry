@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.86
+      value: -10.985
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5856
+      value: 7.728
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.175
+      value: 11.865
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
       propertyPath: m_Name
       value: GameJamChocolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
+      propertyPath: m_TagString
+      value: InteractPos
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

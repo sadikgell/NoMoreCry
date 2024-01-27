@@ -9,6 +9,7 @@ public class BabyActions : MonoBehaviour
     private BoxCollider babyCollider;
     private Happiness happiness;
     private Interaction interaction;
+    public int foodCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +27,14 @@ public class BabyActions : MonoBehaviour
         {
             //Debug.Log("Bebeði mutlu ettiniz.");
             MakeBabyHappy();
-            Destroy(other.gameObject);
+            FoodOrToyCheck(other.gameObject);
             InteractionClear();
         }
         else if (other.gameObject.CompareTag("InteractNeg"))
         {
             //Debug.Log("Bebeði mutsuz ettiniz.");
             MakeBabySad();
-            Destroy(other.gameObject);
+            FoodOrToyCheck(other.gameObject);
             InteractionClear();
         }
     } 
@@ -66,8 +67,7 @@ public class BabyActions : MonoBehaviour
 
     //Interaction scriptinde düzenleme
     void InteractionClear()
-    {
-
+    { 
         interaction.isInteract = false;
         interaction.interactableObject = null;
     }
@@ -86,6 +86,27 @@ public class BabyActions : MonoBehaviour
         else
         {
             BabyNeutralReact();
+        }
+    }
+
+    void FoodOrToyCheck(GameObject gameObject)
+    {
+        if (gameObject.transform.parent.gameObject.name == "Toys")
+        {
+            Debug.Log("Bu bir oyuncak, fýrlatýyorum.");
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            rb.AddForce(Vector3.back * 5f, ForceMode.Impulse);
+            rb.useGravity = true;
+        }
+        else if(gameObject.transform.parent.gameObject.name == "Food")
+        {
+            Debug.Log("Bu bir yiyecek, yiyorum.");
+            foodCounter++;
+            Destroy(gameObject);
+        }
+        else
+        {
+            //Do nothing.
         }
     }
 }
