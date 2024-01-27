@@ -12,7 +12,9 @@ public class Interaction : MonoBehaviour
     private Vector3 initialObjectPosition;
     public float maxDistanceFromPlayer = 1.5f;
     public float dropDistanceThreshold = 1.5f;
-    public float maxDropDistance = 5f; 
+    public float maxDropDistance = 5f;
+
+    public bool isInteractBaby;
 
     void Update()
     {
@@ -40,6 +42,12 @@ public class Interaction : MonoBehaviour
                         isInteract = true;
                         //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false; 
                         hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+                        if(hit.collider.gameObject.tag == "Baby")
+                        {
+                            isInteractBaby = true;
+                        }
+
                     }
                     //Debug.Log($"isInteract :{isInteract}");
                     //Debug.Log($"interactableObject :{interactableObject}");
@@ -67,6 +75,8 @@ public class Interaction : MonoBehaviour
                 interactableObject.GetComponent<Collider>().gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 interactableObject.transform.position = initialObjectPosition;
                 isInteract = false;
+
+                if(isInteractBaby) isInteractBaby = false;
             }
         }
     }

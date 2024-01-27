@@ -6,7 +6,8 @@ using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class BabyActions : MonoBehaviour
-{ 
+{
+    public int babeSwingLimit = 5;
     public int foodCounter = 0;
     public List<AudioClip> babyVoices = new List<AudioClip>();
     private AudioSource babyAudioSource;
@@ -30,7 +31,7 @@ public class BabyActions : MonoBehaviour
         if (other.gameObject.CompareTag("InteractPos"))
         {
             //Debug.Log("Bebeði mutlu ettiniz.");
-            MakeBabyHappy();
+            MakeBabyHappy(5);
             FoodOrToyCheck(other.gameObject);
             interaction.InteractionClear();
         }
@@ -43,9 +44,9 @@ public class BabyActions : MonoBehaviour
         }
     } 
 
-    private void MakeBabyHappy()
+    private void MakeBabyHappy(int boost)
     {
-        happiness.increaseHappiness(5);
+        happiness.increaseHappiness(boost);
     }
 
     private void MakeBabySad()
@@ -67,27 +68,6 @@ public class BabyActions : MonoBehaviour
     public void BabyNeutralReact()
     {
         babyAudioSource.PlayOneShot(babyVoices[2]);
-    }
-
-
-    void FixedUpdate()
-    {
-        if (actionAvailable)
-        {
-            if (happiness.getHappiness() > 70f)
-            {
-                BabyHappyReact();
-            }
-            else if (happiness.getHappiness() < 30f)
-            {
-                BabySadReact();
-            }
-            else
-            {
-                BabyNeutralReact();
-            }
-            actionAvailable = false;
-        } 
     }
 
     void FoodOrToyCheck(GameObject gameObject)
@@ -125,5 +105,33 @@ public class BabyActions : MonoBehaviour
             actionAvailable = true;
         }
         counter -= Time.deltaTime;
+    }
+
+
+    void FixedUpdate()
+    {
+        if (actionAvailable)
+        {
+            if (happiness.getHappiness() > 70f)
+            {
+                BabyHappyReact();
+            }
+            else if (happiness.getHappiness() < 30f)
+            {
+                BabySadReact();
+            }
+            else
+            {
+                BabyNeutralReact();
+            }
+            actionAvailable = false;
+        }
+
+        if (interaction.isInteractBaby == true && babeSwingLimit>0 )
+        {
+            MakeBabyHappy(2);
+            babeSwingLimit--;
+            Debug.Log($"{happiness.getHappiness()} :mutluluk  || {babeSwingLimit} : sallama limiti");
+        }
     }
 }
