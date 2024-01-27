@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Happiness : MonoBehaviour
 {
-    [SerializeField] private float happiness = 100f;
+    [SerializeField] private float happiness = 50f;
     [SerializeField] public float changeRate = 0.027f;
     private TimeController timeController;
     // %100 iken mutlu, %0 iken mutsuz.
@@ -73,7 +73,7 @@ public class Happiness : MonoBehaviour
         {
             if (happiness >= 80f)
             {
-                timeController.speedUp = 8f;
+                timeController.speedUp = 0.5f;
             }
             else if (happiness >= 30f)
             {
@@ -81,7 +81,7 @@ public class Happiness : MonoBehaviour
             }
             else
             {
-                timeController.speedUp = -8f;
+                timeController.speedUp = -0.5f;
             }
         }
     }

@@ -27,7 +27,7 @@ public class TaskManager : MonoBehaviour
     {
         
         tasks.Remove(task);
-        Debug.Log($"{task}, bitti");
+        //Debug.Log($"{task}, bitti");
         if (AllTaskComplete())
         {
             Debug.Log("tasklar bitti");
