@@ -8,7 +8,6 @@ public class ToyCollect : MonoBehaviour
     private GameManager gameManager;
     private Interaction interaciton;
     private int ToyNumber = 0;
-    public Vector3 offset;
 
     public GameObject toy1;
     public Transform toy1Area;
@@ -49,7 +48,7 @@ public class ToyCollect : MonoBehaviour
         toy6Area = AreaCreator(toy6, "Toy6Area");
         toy7Area = AreaCreator(toy7, "Toy7Area");
         toy8Area = AreaCreator(toy8, "Toy8Area");
-
+        Debug.Log(toy1Area);
     }   
 
     private void OnTriggerEnter(Collider other)
