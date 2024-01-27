@@ -5,10 +5,10 @@ using UnityEngine;
 public class ChocolateReactions : MonoBehaviour
 {
     [SerializeField] private int remaining = 3;
-    [SerializeField] private GameObject box;
+    [SerializeField] private GameObject chocolateItself;
     void Start()
     {
-        box = GetComponent<GameObject>();
+        chocolateItself = GetComponent<GameObject>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +25,7 @@ public class ChocolateReactions : MonoBehaviour
     {
         if (remaining == 0)
         {
-            Destroy(box);
+            Destroy(chocolateItself);
             
         }
     }
