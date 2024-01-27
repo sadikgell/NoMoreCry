@@ -702,6 +702,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4841874173516480742, guid: 1b82b6b4701a3624bb058ac11f4f4b03, type: 3}
+      propertyPath: voiceLines.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 32fc48127ea7517478c4ba970c7f4dc3, type: 3}
+    - target: {fileID: 4841874173516480742, guid: 1b82b6b4701a3624bb058ac11f4f4b03, type: 3}
+      propertyPath: voiceLines.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 53f8f4b505074cf4181909e810bae1a9, type: 3}
     - target: {fileID: 8567673480332412374, guid: 1b82b6b4701a3624bb058ac11f4f4b03, type: 3}
       propertyPath: m_Name
       value: Player
