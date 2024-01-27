@@ -29,7 +29,7 @@ public class BabyActions : MonoBehaviour
         babyAudioSource = GetComponent<AudioSource>();
         anim = GameObject.Find("Armature").GetComponent<Animator>();
         state = AnimationState.idle;
-        smr = GameObject.Find("Cube").GetComponent<SkinnedMeshRenderer>();
+        smr = GameObject.Find("BebeHead").GetComponent<SkinnedMeshRenderer>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -62,7 +62,7 @@ public class BabyActions : MonoBehaviour
      
     public void BabyHappyReact() 
     {
-        smr.SetMaterials(new List<Material> { deriler[2] }); 
+        smr.SetMaterials(new List<Material>  { deriler[2] }); 
         babyAudioSource.clip = babyVoices[0];
         babyAudioSource.Play(0);
         state = AnimationState.laughing;

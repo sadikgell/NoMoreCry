@@ -19600,6 +19600,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2575182753062851806, guid: 6ac3ffa924f1bb34cb1ce01aadf554c5, type: 3}
+      propertyPath: m_Name
+      value: BebeHead
+      objectReference: {fileID: 0}
     - target: {fileID: 2662165367606549483, guid: 6ac3ffa924f1bb34cb1ce01aadf554c5, type: 3}
       propertyPath: m_Name
       value: Bebe

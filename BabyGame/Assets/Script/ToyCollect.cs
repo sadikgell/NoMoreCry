@@ -7,7 +7,7 @@ public class ToyCollect : MonoBehaviour
 { 
     private GameManager gameManager;
     private Interaction interaciton;
-    private int ToyNumber = 0;
+    private int ToyNumber = 1;
 
     public GameObject toy1;
     public Transform toy1Area;
