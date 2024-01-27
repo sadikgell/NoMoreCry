@@ -26,13 +26,13 @@ public class GameManager : MonoBehaviour
     {
         if (babyActions.foodCounter == 2)
         {
-            taskManager.CompleteTask(taskManager.tasks[0]);
+            taskManager.CompleteTask("Feed the baby two meals.");
             babyActions.foodCounter = -1;
             
         }
         if (inCaseToy == toyCount)
         { 
-            taskManager.CompleteTask(taskManager.tasks[1]);
+            taskManager.CompleteTask("Check if the toys are in place.");
         }
 
     }

@@ -11,8 +11,7 @@ public class TaskManager : MonoBehaviour
 
     void Start()
     {
-        tasks.Add("Feed the baby two meals");
-        tasks.Add("Check if the toys are in place");
+        // Sadýk, direkt Unity UI'dan ayarladým elementleri. -Semih
         for(int i = 0; i< tasks.Count; i++)
         {
             Debug.Log(tasks[i]);
