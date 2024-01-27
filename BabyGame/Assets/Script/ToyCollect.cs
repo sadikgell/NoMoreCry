@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ToyCollect : MonoBehaviour
 { 
     private GameManager gameManager;
     private Interaction interaciton;
-    private int ToyNumber = 0;
+    private int ToyNumber = 1;
 
     public GameObject toy1;
-    public Transform toy1Area;
+    public Transform toy1Area;  
 
     public GameObject toy2;
     public Transform toy2Area;
@@ -48,7 +49,6 @@ public class ToyCollect : MonoBehaviour
         toy6Area = AreaCreator(toy6, "Toy6Area");
         toy7Area = AreaCreator(toy7, "Toy7Area");
         toy8Area = AreaCreator(toy8, "Toy8Area");
-        Debug.Log(toy1Area);
     }   
 
     private void OnTriggerEnter(Collider other)
@@ -56,7 +56,7 @@ public class ToyCollect : MonoBehaviour
         
         if (other.gameObject.transform.parent.name == "Toys")
         {
-
+            Debug.Log(other.gameObject.transform.parent.name);
             switch  (ToyNumber)
             {
                 case 1:
@@ -127,9 +127,13 @@ public class ToyCollect : MonoBehaviour
 
     public void ToyTP(Collider other,Transform toyArea)
     {
+        Debug.Log(other.transform.position + "ÖNCESÝ");
         other.transform.position = toyArea.position;
         other.transform.rotation = toyArea.rotation;
         other.transform.localScale = toyArea.localScale;
+        Debug.Log(other.transform.position + "SONRASI");
+        Debug.Log(toyArea);
+        
     }
 
     // Update is called once per frame
