@@ -63,7 +63,8 @@ public class BabyActions : MonoBehaviour
     }
      
     public void BabyHappyReact() 
-    { 
+    {
+        smr.SetMaterials(materials);
         babyAudioSource.PlayOneShot(babyVoices[0]);
         state = AnimationState.laughing;
         anim.SetInteger("state", (int)state);

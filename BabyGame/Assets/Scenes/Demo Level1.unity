@@ -19296,6 +19296,10 @@ PrefabInstance:
       propertyPath: materials.Array.data[2]
       value: 
       objectReference: {fileID: 4874126678125670354, guid: 256f68237d661664ca21000fc53825e5, type: 3}
+    - target: {fileID: 2183890743706660403, guid: 6ac3ffa924f1bb34cb1ce01aadf554c5, type: 3}
+      propertyPath: materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 4874126678125670354, guid: b3cbbdd0eb273a347aab1c84fc0a2c8f, type: 3}
     - target: {fileID: 2662165367606549483, guid: 6ac3ffa924f1bb34cb1ce01aadf554c5, type: 3}
       propertyPath: m_Name
       value: Bebe
