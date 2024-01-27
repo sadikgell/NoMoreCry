@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remaining: 3
-  box: {fileID: 0}
+  chocolateItself: {fileID: 0}
 --- !u!1 &1735201014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f72acf472220f646966c44ea4506988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodCounter: 0
 --- !u!1001 &2056827338
 PrefabInstance:
   m_ObjectHideFlags: 0
