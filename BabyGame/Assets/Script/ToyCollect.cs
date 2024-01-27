@@ -9,11 +9,16 @@ public class ToyCollect : MonoBehaviour
     private int ToyNumber = 0;
     public Vector3 offset;
 
+    public Transform toy1Area;
+
     // Start is called before the first frame update
     void Start()
     {
         interaciton = GameObject.Find("Main Camera").GetComponent<Interaction>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();  
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        toy1Area = GameObject.Find("Toy1Area").GetComponent<Transform>();
+        
     }   
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +28,10 @@ public class ToyCollect : MonoBehaviour
         {
 
             if (ToyNumber == 0) 
-            {  
+            {
+                other.transform.position = toy1Area.position;
+                other.transform.rotation = toy1Area.rotation;
+                other.transform.localScale = toy1Area.localScale;
                 /*
                 Instantiate(other.gameObject, new Vector3(14.628f, -2.188f, -16.114f), Quaternion.Euler(new Vector3(0, 133.428f, 0)));
                 //other.gameObject.transform.position = new Vector3(14.628f, -2.188f, -16.114f);  
