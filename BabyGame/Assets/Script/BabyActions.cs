@@ -63,23 +63,26 @@ public class BabyActions : MonoBehaviour
     public void BabyHappyReact() 
     {
         smr.SetMaterials(new List<Material> { deriler[2] }); 
-        babyAudioSource.PlayOneShot(babyVoices[0]);  
+        babyAudioSource.clip = babyVoices[0];
+        babyAudioSource.Play(0);
         state = AnimationState.laughing;
         anim.SetInteger("state", (int)state); 
     }
 
     public void BabySadReact()
     {
-        smr.SetMaterials(new List<Material> { deriler[0] }); 
-        babyAudioSource.PlayOneShot(babyVoices[3]); 
+        smr.SetMaterials(new List<Material> { deriler[0] });
+        babyAudioSource.clip = babyVoices[3];
+        babyAudioSource.Play(0);
         state = AnimationState.bored;
         anim.SetInteger("state", (int)state); 
     }
 
     public void BabyNeutralReact()
     {
-        smr.SetMaterials(new List<Material> { deriler[3] });  
-        babyAudioSource.PlayOneShot(babyVoices[1]); 
+        smr.SetMaterials(new List<Material> { deriler[3] });
+        babyAudioSource.clip = babyVoices[1];
+        babyAudioSource.Play(0);
         state = AnimationState.sleeping;
         anim.SetInteger("state", (int)state); 
     }
@@ -90,7 +93,7 @@ public class BabyActions : MonoBehaviour
         {
             Debug.Log("Bu bir oyuncak, fýrlatýyorum.");
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(Vector3.back * 5f, ForceMode.Impulse);
+            rb.AddForce(Vector3.forward * 5f, ForceMode.Impulse);
             rb.isKinematic = false;
         }
         else if(gameObject.transform.parent.gameObject.name == "Food")
