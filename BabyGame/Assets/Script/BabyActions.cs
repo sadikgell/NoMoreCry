@@ -11,8 +11,7 @@ public class BabyActions : MonoBehaviour
     public int foodCounter = 0;
     public List<AudioClip> babyVoices = new List<AudioClip>();
     public List<Material> deriler = new List<Material>();
-    private AudioSource babyAudioSource;
-    private BoxCollider babyCollider;
+    private AudioSource babyAudioSource; 
     private Happiness happiness;
     private Interaction interaction;
     private Boolean firstChocolate = true;
@@ -24,8 +23,7 @@ public class BabyActions : MonoBehaviour
     private SkinnedMeshRenderer smr; 
 
     void Start()
-    {
-        babyCollider = GetComponent<BoxCollider>();
+    { 
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
         interaction = GameObject.Find("Main Camera").GetComponent<Interaction>(); 
         babyAudioSource = GetComponent<AudioSource>();
@@ -64,26 +62,29 @@ public class BabyActions : MonoBehaviour
      
     public void BabyHappyReact() 
     {
-        smr.SetMaterials(new List<Material> { deriler[2] });
-        babyAudioSource.PlayOneShot(babyVoices[0]);
+        smr.SetMaterials(new List<Material> { deriler[2] }); 
+        babyAudioSource.clip = babyVoices[0];
+        babyAudioSource.Play(0);
         state = AnimationState.laughing;
-        anim.SetInteger("state", (int)state);
+        anim.SetInteger("state", (int)state); 
     }
 
     public void BabySadReact()
     {
         smr.SetMaterials(new List<Material> { deriler[0] });
-        babyAudioSource.PlayOneShot(babyVoices[3]); 
+        babyAudioSource.clip = babyVoices[3];
+        babyAudioSource.Play(0);
         state = AnimationState.bored;
-        anim.SetInteger("state", (int)state);
+        anim.SetInteger("state", (int)state); 
     }
 
     public void BabyNeutralReact()
     {
         smr.SetMaterials(new List<Material> { deriler[3] });
-        babyAudioSource.PlayOneShot(babyVoices[1]);
+        babyAudioSource.clip = babyVoices[1];
+        babyAudioSource.Play(0);
         state = AnimationState.sleeping;
-        anim.SetInteger("state", (int)state);
+        anim.SetInteger("state", (int)state); 
     }
 
     void FoodOrToyCheck(GameObject gameObject)
@@ -92,7 +93,7 @@ public class BabyActions : MonoBehaviour
         {
             Debug.Log("Bu bir oyuncak, fýrlatýyorum.");
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(Vector3.back * 5f, ForceMode.Impulse);
+            rb.AddForce(Vector3.forward * 5f, ForceMode.Impulse);
             rb.isKinematic = false;
         }
         else if(gameObject.transform.parent.gameObject.name == "Food")
@@ -121,12 +122,13 @@ public class BabyActions : MonoBehaviour
             actionAvailable = true;
         }
         counter -= Time.deltaTime;
+        Debug.Log("Counter: " + counter);
     }
 
     void BabyCry()
     {
-        smr.SetMaterials(new List<Material> { deriler[1] });
-        babyAudioSource.PlayOneShot(babyVoices[2]);
+        smr.SetMaterials(new List<Material> { deriler[1] });  
+        babyAudioSource.PlayOneShot(babyVoices[2]); 
         anim.SetTrigger("Cry"); 
         //TODO: Game over ekraný.
     }
@@ -135,8 +137,10 @@ public class BabyActions : MonoBehaviour
     {
         if (actionAvailable)
         {
+            babyAudioSource.Stop();
             if (happiness.getHappiness() > 70f)
             {
+                
                 BabyHappyReact();
             }
             else if (happiness.getHappiness() < 30f)
