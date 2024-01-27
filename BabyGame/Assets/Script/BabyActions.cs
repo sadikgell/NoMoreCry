@@ -96,7 +96,7 @@ public class BabyActions : MonoBehaviour
             Debug.Log("Bu bir oyuncak, fýrlatýyorum.");
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.AddForce(Vector3.back * 5f, ForceMode.Impulse);
-            rb.useGravity = true;
+            rb.isKinematic = false;
         }
         else if(gameObject.transform.parent.gameObject.name == "Food")
         {
