@@ -852,6 +852,7 @@ GameObject:
   - component: {fileID: 7661395990766367883}
   - component: {fileID: 7550006795246812847}
   - component: {fileID: 8435280142044289332}
+  - component: {fileID: 621754428212784003}
   m_Layer: 0
   m_Name: Hurc
   m_TagString: Untagged
@@ -869,7 +870,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.97250223, z: 0, w: 0.23289376}
   m_LocalPosition: {x: 29.556, y: 1.205, z: 8.837}
-  m_LocalScale: {x: 0.91183, y: 1, z: 0.7322043}
+  m_LocalScale: {x: 1.1695051, y: 1.2825912, z: 0.9391188}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4911410868664614219}
@@ -891,7 +892,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6393d1b204fd10b4887aae3912f8e0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Toys: {fileID: 0}
+  offset: {x: -1.3, y: -0.8, z: -0.4}
+  toy1: {fileID: 0}
+  toy1Area: {fileID: 0}
+  toy2: {fileID: 0}
+  toy2Area: {fileID: 0}
+  toy3: {fileID: 0}
+  toy3Area: {fileID: 0}
+  toy4: {fileID: 0}
+  toy4Area: {fileID: 0}
 --- !u!65 &8435280142044289332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -907,12 +916,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6570606, y: 1.5743645, z: 3.0954146}
-  m_Center: {x: 1.5884272, y: -0.04128927, z: -0.08623327}
+  m_Size: {x: 1.657061, y: 2.8263488, z: 3.0954146}
+  m_Center: {x: 1.5884295, y: 0.5847038, z: -0.086227305}
+--- !u!54 &621754428212784003
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548036830270508283}
+  serializedVersion: 4
+  m_Mass: 100
+  m_Drag: 5
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &7082665471086711272
 GameObject:
   m_ObjectHideFlags: 0
