@@ -12,13 +12,15 @@ public class PlayerMovement : MonoBehaviour
      * gravityValue: Yerçekimi. Collider yok, elle yerçekimi.
      * rayFromMiddle: Zýplama mekaniði için, karakterin ortasýndan aþaðýya atýlan rayin; karakterin ortasýndan ne kadar aþaðýda olacaðý.
      * Bu rayi ortadan atýnca karakter zýplamýyor, ona dikkat.
+     * rayLength: Ýçeriden atýlan rayin uzunluðu.
      */
     public float sprintSpeed = 10f;
     public float walkSpeed = 5f;
     public float sensitivity = 2f;
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
-    public float rayFromMiddle = 1f;
+    public float rayFromMiddle = 0.9f;
+    public float rayLength = 0.13f; 
 
     private CharacterController characterController; 
     private bool isSprinting = false;
@@ -62,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log($"Zýplýyoruz.");
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-         
+
         playerVelocity.y += gravityValue * Time.deltaTime;
-        characterController.Move(playerVelocity * Time.deltaTime); 
+        characterController.Move(Vector3.up * playerVelocity.y * Time.deltaTime); 
     }
 
     private void CheckSprintInput()
@@ -110,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
     bool IsGrounded()
     {
         // isGrounded deðiþkeni çalýþmadý :( mecbur metoda kaldýk.
-        float rayLength = 1f; // Ýçeriden atýlan rayin uzunluðu.
         RaycastHit hit;
 
         Debug.DrawRay(currentLocation, Vector3.down * rayLength, Color.red);
