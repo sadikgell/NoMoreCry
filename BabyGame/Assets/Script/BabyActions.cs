@@ -17,13 +17,18 @@ public class BabyActions : MonoBehaviour
     private Boolean firstChocolate = true;
     [SerializeField] private float counter = 0f;
     [SerializeField] private Boolean actionAvailable = true;
- 
+    private Animator anim; 
+    private enum AnimationState { idle, laughing, bored, sleeping }
+    private AnimationState state;
+
     void Start()
     {
         babyCollider = GetComponent<BoxCollider>();
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
         interaction = GameObject.Find("Main Camera").GetComponent<Interaction>(); 
         babyAudioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+        state = AnimationState.idle;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -53,21 +58,26 @@ public class BabyActions : MonoBehaviour
     { 
         happiness.decreaseHappiness(5);
     }
-
-    // TODO: React animations.
+     
     public void BabyHappyReact() 
     {
         babyAudioSource.PlayOneShot(babyVoices[0]);
+        state = AnimationState.laughing;
+        anim.SetInteger("state", (int)state);
     }
 
     public void BabySadReact()
     {
-        babyAudioSource.PlayOneShot(babyVoices[1]);
+        babyAudioSource.PlayOneShot(babyVoices[3]); 
+        state = AnimationState.bored;
+        anim.SetInteger("state", (int)state);
     }
 
     public void BabyNeutralReact()
     {
-        babyAudioSource.PlayOneShot(babyVoices[2]);
+        babyAudioSource.PlayOneShot(babyVoices[1]);
+        state = AnimationState.sleeping;
+        anim.SetInteger("state", (int)state);
     }
 
     void FoodOrToyCheck(GameObject gameObject)
@@ -107,6 +117,12 @@ public class BabyActions : MonoBehaviour
         counter -= Time.deltaTime;
     }
 
+    void BabyCry()
+    {
+        babyAudioSource.PlayOneShot(babyVoices[2]);
+        anim.SetTrigger("Cry"); 
+        //TODO: Game over ekraný.
+    }
 
     void FixedUpdate()
     {
@@ -120,9 +136,13 @@ public class BabyActions : MonoBehaviour
             {
                 BabySadReact();
             }
-            else
+            else if (happiness.getHappiness() > 0f)
             {
                 BabyNeutralReact();
+            }
+            else
+            {
+                BabyCry();
             }
             actionAvailable = false;
         }
@@ -132,6 +152,8 @@ public class BabyActions : MonoBehaviour
             MakeBabyHappy(2);
             babeSwingLimit--;
             Debug.Log($"{happiness.getHappiness()} :mutluluk  || {babeSwingLimit} : sallama limiti");
-        }
+        } 
+
+        Counter();
     }
 }
