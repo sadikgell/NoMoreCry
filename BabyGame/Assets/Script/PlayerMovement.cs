@@ -4,22 +4,42 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    /* Deðiþken açýklamalarý:
+     * sprintSpeed: Koþarkenki hýzýmýz.
+     * walkSpeed: Yürürkenki hýzýmýz.
+     * sensitivity: Fare hassasiyeti.
+     * jumpHeight: Zýplama yüksekliði. Arttýrdýkça zýplama oraný artýyor.
+     * gravityValue: Yerçekimi. Collider yok, elle yerçekimi.
+     * rayFromMiddle: Zýplama mekaniði için, karakterin ortasýndan aþaðýya atýlan rayin; karakterin ortasýndan ne kadar aþaðýda olacaðý.
+     * Bu rayi ortadan atýnca karakter zýplamýyor, ona dikkat.
+     * rayLength: Ýçeriden atýlan rayin uzunluðu.
+     */
     public float sprintSpeed = 10f;
     public float walkSpeed = 5f;
     public float sensitivity = 2f;
-    
-    private CharacterController characterController;
+    public float jumpHeight = 1.0f;
+    public float gravityValue = -9.81f;
+    public float rayFromMiddle = 0.9f;
+    public float rayLength = 0.13f; 
+
+    private CharacterController characterController; 
     private bool isSprinting = false;
+    private Vector3 playerVelocity;
+    private Vector3 currentLocation;
 
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();  
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     private void Update()
     {
+        currentLocation = new Vector3(transform.position.x, (transform.position.y - rayFromMiddle), transform.position.z);
+
+        // move mekaniði.
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -30,9 +50,31 @@ public class PlayerMovement : MonoBehaviour
 
         MovePlayer(moveDirection);
 
+        //jump mekaniði. 
+
+        Debug.Log($"Character Ground Mu: {IsGrounded()}");
+
+        if (IsGrounded() && (playerVelocity.y < 0))
+        {
+            playerVelocity.y = 0f;
+        }
+          
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            Debug.Log($"Zýplýyoruz.");
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        characterController.Move(Vector3.up * playerVelocity.y * Time.deltaTime); 
     }
+
     private void CheckSprintInput()
     {
+        isSprinting = Input.GetKey(KeyCode.LeftShift);
+
+        /* 
+         * Bu da, yukarýdaki de boolean döndürüyor, buna hiç gerek yok.
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isSprinting = true;
@@ -41,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isSprinting = false;
         }
+        */
     }
 
     private Vector3 CalculateMoveDirection(float horizontalInput, float verticalInput)
@@ -63,7 +106,21 @@ public class PlayerMovement : MonoBehaviour
     {
         float speed = isSprinting ? sprintSpeed : walkSpeed;
 
-        characterController.Move(moveDirection * speed * Time.deltaTime);
-
+        characterController.Move(moveDirection * speed * Time.deltaTime); 
     }
+
+    bool IsGrounded()
+    {
+        // isGrounded deðiþkeni çalýþmadý :( mecbur metoda kaldýk.
+        RaycastHit hit;
+
+        Debug.DrawRay(currentLocation, Vector3.down * rayLength, Color.red);
+
+        if (Physics.Raycast(currentLocation, Vector3.down, out hit, rayLength))
+        { 
+            return true; 
+        }  
+        return false;
+    }
+
 }
