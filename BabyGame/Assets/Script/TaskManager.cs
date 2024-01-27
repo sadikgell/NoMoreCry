@@ -1,80 +1,41 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class Task
-{
-    public string description;
-    public bool isCompleted;
-    public int rewardPoints;
-
-
-    public Task(string desc, int reward)
-    {
-        description = desc;
-        isCompleted = false;
-        rewardPoints = reward;
-    }
-}
-
 public class TaskManager : MonoBehaviour
 {
-    public List<Task> tasks = new List<Task>();
+
+    public List<string> tasks = new List<string>(); 
     public Text taskDisplayText;
 
     void Start()
     {
-        tasks.Add(new Task("Feed the baby two meals", 50));
-        tasks.Add(new Task("Check if the toys are in place", 50));
-        foreach (var task in tasks)
+        // Sadýk, direkt Unity UI'dan ayarladým elementleri. -Semih
+        for(int i = 0; i< tasks.Count; i++)
         {
-            Debug.Log(task);
+            Debug.Log(tasks[i]);
         }
-        UpdateTaskDisplay();
     }
 
-    public void AddTask(Task newTask)
+    public void AddTask(string newTask)
     {
         tasks.Add(newTask);
-        UpdateTaskDisplay();
     }
 
-    public void CompleteTask(Task task)
+    public void CompleteTask(string task)
     {
-        task.isCompleted = true;
+        
         tasks.Remove(task);
-        UpdateTaskDisplay();
-
-        if (AreAllTasksComplete())
+        Debug.Log($"{task}, bitti");
+        if (AllTaskComplete())
         {
             Debug.Log("tasklar bitti");
         }
     }
-    void UpdateTaskDisplay()
+    public bool AllTaskComplete()
     {
-        if (taskDisplayText != null)
-        {
-            string taskText = "Tasks:\n";
-            foreach (Task task in tasks)
-            {
-                taskText += $"{(task.isCompleted ? "[X]" : "[ ]")} {task.description} ({task.rewardPoints} points)\n";
-            }
-            taskDisplayText.text = taskText;
-        }
+        return tasks.Count == 0;
     }
-
-    bool AreAllTasksComplete()
-    {
-        foreach (Task task in tasks)
-        {
-            if (!task.isCompleted)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
 
 }
