@@ -61,5 +61,6 @@ public class Happiness : MonoBehaviour
     void FixedUpdate()
     {
         ChangeHappiness();
+
     }
 }
