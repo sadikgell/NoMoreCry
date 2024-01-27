@@ -67,7 +67,7 @@ public class BabyActions : MonoBehaviour
     //Interaction scriptinde düzenleme
     void InteractionClear()
     {
-        Debug.Log("keke");
+
         interaction.isInteract = false;
         interaction.interactableObject = null;
     }
