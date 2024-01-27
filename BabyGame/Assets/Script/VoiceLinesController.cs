@@ -18,6 +18,10 @@ public class VoiceLinesController : MonoBehaviour
     
     void FixedUpdate()
     {
-
+        if (gameJustStarted)
+        {
+            audioSource.PlayOneShot(voiceLines[0]);
+            gameJustStarted = false;
+        }
     }
 }
