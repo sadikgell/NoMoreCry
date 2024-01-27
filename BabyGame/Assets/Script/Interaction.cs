@@ -26,7 +26,10 @@ public class Interaction : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hit.point, Color.red);
 
-            if (hit.distance <= distance && (hit.collider.gameObject.tag == "InteractNeg" || hit.collider.gameObject.tag == "InteractPos"))
+            if (hit.distance <= distance && 
+                (hit.collider.gameObject.tag == "InteractNeg" ||
+                hit.collider.gameObject.tag == "InteractPos" || 
+                hit.collider.gameObject.tag == "Baby"))
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
