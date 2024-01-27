@@ -9,7 +9,7 @@ public class VoiceLinesController : MonoBehaviour
     public Boolean fedChocolate = false;
     public Boolean actionAvailable = false;
     [SerializeField] private Boolean gameJustStarted = true;
-    [SerializeField] private float counter = 15f;
+    [SerializeField] private float counter = 10f;
 
     // Start is called before the first frame update
     void Start() 
@@ -70,7 +70,7 @@ public class VoiceLinesController : MonoBehaviour
     {
         if (counter <= 0f)
         { 
-            counter = 10f;
+            counter = 25f;
             actionAvailable = true;
         }
         counter -= Time.deltaTime;

@@ -13721,14 +13721,6 @@ PrefabInstance:
       value: GameJamTV
       objectReference: {fileID: 0}
     - target: {fileID: 2293397686778573543, guid: d697a91b04c44fb4fbbc18107b0c8cc8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.89847255
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293397686778573543, guid: d697a91b04c44fb4fbbc18107b0c8cc8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3214973
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293397686778573543, guid: d697a91b04c44fb4fbbc18107b0c8cc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.345
       objectReference: {fileID: 0}
@@ -13767,18 +13759,6 @@ PrefabInstance:
     - target: {fileID: 2293397686778573543, guid: d697a91b04c44fb4fbbc18107b0c8cc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885262519559361273, guid: d697a91b04c44fb4fbbc18107b0c8cc8, type: 3}
-      propertyPath: m_Size.z
-      value: 0.54566
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885262519559361273, guid: d697a91b04c44fb4fbbc18107b0c8cc8, type: 3}
-      propertyPath: m_Center.y
-      value: 1.4754611
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885262519559361273, guid: d697a91b04c44fb4fbbc18107b0c8cc8, type: 3}
-      propertyPath: m_Center.z
-      value: -0.048410416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
