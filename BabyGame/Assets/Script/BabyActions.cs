@@ -27,14 +27,14 @@ public class BabyActions : MonoBehaviour
             //Debug.Log("Bebeði mutlu ettiniz.");
             MakeBabyHappy();
             FoodOrToyCheck(other.gameObject);
-            InteractionClear();
+            interaction.InteractionClear();
         }
         else if (other.gameObject.CompareTag("InteractNeg"))
         {
             //Debug.Log("Bebeði mutsuz ettiniz.");
             MakeBabySad();
             FoodOrToyCheck(other.gameObject);
-            InteractionClear();
+            interaction.InteractionClear();
         }
     } 
 
@@ -62,14 +62,6 @@ public class BabyActions : MonoBehaviour
     void BabyNeutralReact()
     {
         //Debug.Log("Neutral react.");
-    }
-
-
-    //Interaction scriptinde düzenleme
-    void InteractionClear()
-    { 
-        interaction.isInteract = false;
-        interaction.interactableObject = null;
     }
 
 

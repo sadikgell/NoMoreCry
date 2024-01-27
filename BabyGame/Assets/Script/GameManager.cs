@@ -6,12 +6,17 @@ public class GameManager : MonoBehaviour
 {
     public TaskManager taskManager;
     private BabyActions babyActions;
-
+    public GameObject toys;
+    public int toyCount;
+    public int inCaseToy = 0;
     // Start is called before the first frame update
     void Start()
     {
         babyActions = GameObject.Find("Bebe").GetComponent<BabyActions>();
         taskManager = GetComponent<TaskManager>();
+
+        toys = GameObject.Find("Toys");
+        toyCount = toys.transform.childCount; 
 
     }
 
@@ -22,6 +27,12 @@ public class GameManager : MonoBehaviour
         {
             taskManager.CompleteTask(taskManager.tasks[0]);
             babyActions.foodCounter = -1;
-        }        
+        }
+        if (inCaseToy == toyCount)
+        {
+            
+            taskManager.CompleteTask(taskManager.tasks[1]);
+        }
+        
     }
 }
