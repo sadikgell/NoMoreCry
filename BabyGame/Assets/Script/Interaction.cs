@@ -34,8 +34,9 @@ public class Interaction : MonoBehaviour
                     {
                         interactableObject = hit.collider.gameObject;
                         initialObjectPosition = interactableObject.transform.position;
-                        isInteract = true; 
-                        hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false; 
+                        isInteract = true;
+                        //hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = false; 
+                        hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     }
                     Debug.Log($"isInteract :{isInteract}");
                     Debug.Log($"interactableObject :{interactableObject}");
@@ -56,10 +57,11 @@ public class Interaction : MonoBehaviour
             float distanceToInitialPosition = Vector3.Distance(interactableObject.transform.position, initialObjectPosition);
             float playerToInitialPositionDistance = Vector3.Distance(transform.position, initialObjectPosition);
 
-            interactableObject.GetComponent<Collider>().gameObject.GetComponent<Rigidbody>().useGravity = true;
+            
 
             if (distanceToInitialPosition <= dropDistanceThreshold && playerToInitialPositionDistance <= maxDropDistance)
             {
+                interactableObject.GetComponent<Collider>().gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 interactableObject.transform.position = initialObjectPosition;
                 isInteract = false;
             }
