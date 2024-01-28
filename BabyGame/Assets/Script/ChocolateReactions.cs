@@ -8,37 +8,35 @@ public class ChocolateReactions : MonoBehaviour
     [SerializeField] private GameObject chocolateItself;
     private Interaction interaction;
     public GameObject ChocolateBrocoli;
+    public Transform chocolateBrocoliPos;
+
     void Start()
     {
         chocolateItself = this.gameObject;
         interaction = GameObject.Find("Main Camera").GetComponent<Interaction>();
+        chocolateBrocoliPos = GameObject.Find("ChocolateBrocoliPos").GetComponent<Transform>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("InteractNeg"))
         {
-            try
-            { 
+           
                 if (other.gameObject.GetComponent<PrefabAccess>().prefabName == "Brocoli")
-                { 
-                    other.gameObject.tag = "InteractPos";
-
-                    GameObject newObject = Instantiate(ChocolateBrocoli, transform.position, transform.rotation);
-                     
+                {
                     Destroy(other.gameObject);
+
+                    GameObject newObject = Instantiate(ChocolateBrocoli, chocolateBrocoliPos.position, Quaternion.identity);
+                    Debug.Log(newObject.transform);
+                    
 
                     newObject.transform.SetParent(GameObject.Find("Food").transform,true);
                     interaction.InteractionClear();
 
                     remaining--;
                 }
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError(e.Message);
-                throw;
-            }
+            
+            
         }
     } 
 
