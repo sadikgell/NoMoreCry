@@ -10,94 +10,78 @@ public class VoiceLinesController : MonoBehaviour
     public Boolean actionAvailable = false;
     [SerializeField] private Boolean gameJustStarted = true;
     [SerializeField] private float counter = 10f;
-    private TimeController timeController;
-     
-    void Start() 
+
+    // Start is called before the first frame update
+    void Start()
     {
         try
         {
             audioSource = GetComponent<AudioSource>();
             happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
-            timeController = GameObject.Find("GameManager").GetComponent<TimeController>();
         }
         catch (Exception e)
         {
-            Debug.LogError("VoiceLinesController()'da kritik hata: "+e.Message);
+            Debug.LogError("VoiceLinesController()'da kritik hata: " + e.Message);
         }
     }
-    
+
     void FixedUpdate()
     {
-        Counter(); 
+        Counter();
 
         if (gameJustStarted)
-        { 
-            audioSource.clip = voiceLines[0];
-            audioSource.Play(0);
+        {
+            audioSource.PlayOneShot(voiceLines[0]); // here we go again.
             gameJustStarted = false;
             //Debug.Log("Oyun baþladý.");
         }
-        else if(fedChocolate)
+        else if (fedChocolate)
         {
-            audioSource.clip = voiceLines[5];
-            audioSource.Play(0);// chocolate
+            audioSource.PlayOneShot(voiceLines[5]); // chocolate
             fedChocolate = false;
             //Debug.Log("Çikolata verildi.");
-        }else if (actionAvailable && timeController.getRemainingTime() <= 10f && happiness.getHappiness() >= 20f) //oyunu kazandý.
-        {
-            audioSource.clip = voiceLines[7];
-            audioSource.Play(0);
-            actionAvailable = false;
         }
         else if (happiness.getHappiness() >= 85f && actionAvailable)
         {
-            audioSource.clip = voiceLines[1];
-            audioSource.Play(0); // aint half bad
+            audioSource.PlayOneShot(voiceLines[1]); // aint half bad
             actionAvailable = false;
             //ebug.Log("Mutlu.");
         }
-        else if (happiness.getHappiness() <= 15f && happiness.getHappiness() >= 5f && actionAvailable)
+        else if (happiness.getHappiness() <= 15f && actionAvailable)
         {
             System.Random random = new System.Random();
             int randomIndex = random.Next(1, 3);
             if (randomIndex == 1)
             {
-                audioSource.clip = voiceLines[6];
-                audioSource.Play(0); // shut up
+                audioSource.PlayOneShot(voiceLines[6]); // shut up
             }
             else
             {
-                audioSource.clip = voiceLines[4];
-                audioSource.Play(0); // luck you
+                audioSource.PlayOneShot(voiceLines[4]); // luck you
             }
             actionAvailable = false;
             //Debug.Log("Mutsuz.");
         }
-        else //oyun kaybedilirse
-        {
-            System.Random random = new System.Random();
-            int randomIndex = random.Next(1, 3);
-            if (randomIndex == 1)
-            {
-                audioSource.clip = voiceLines[2];
-                audioSource.Play(0);
-            }
-            else
-            {
-                audioSource.clip = voiceLines[3];
-                audioSource.Play(0);
-            }
-            actionAvailable = false;
-        } 
+        //TODO: Else if oyun biterse, bitiþ sesini oynat , 2 ve 3.
+        //TODO: Else if kazanýrsak, kazanma sesi, 7. 
     }
 
     private void Counter()
     {
         if (counter <= 0f)
-        { 
+        {
             counter = 25f;
             actionAvailable = true;
         }
         counter -= Time.deltaTime;
-    } 
+    }
+
+
+    /*
+     
+BabyAction'da deðiþtirdiðim yer. -Semih
+   if (gameObject.name == "GameJamChocolate" && firstChocolate){
+              GameObject.Find("Player").GetComponent<VoiceLinesController>().fedChocolate = true;
+              firstChocolate = false;
+              Debug.Log("Kutsal çikolata verildi.");}*/
 }

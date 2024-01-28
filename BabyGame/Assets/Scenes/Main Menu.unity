@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAKE THE BABY LAUGH
+  m_text: NO MORE CRY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c6ad8bf608ea584baee59d890d31a90, type: 2}
   m_sharedMaterial: {fileID: -1662319822257796333, guid: 5c6ad8bf608ea584baee59d890d31a90, type: 2}

@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
         TVAudio = GameObject.Find("GameJamTV").GetComponent<AudioSource>();
         BabyAudio = GameObject.Find("Bebe").GetComponent<AudioSource>();
         Resume();
-           
+        
     }
 
     // Update is called once per frame
@@ -64,7 +64,10 @@ public class PauseMenu : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene(0);
+            
         }
     }
     public void Resume()
