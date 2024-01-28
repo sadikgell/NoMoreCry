@@ -37768,6 +37768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameJamCeilingLamp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3403619777319163076, guid: 9f1b99b2719eb8b4cba2f7eddf61675b, type: 3}
+      propertyPath: m_SpotAngle
+      value: 140
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

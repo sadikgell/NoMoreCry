@@ -15,19 +15,23 @@ public class SceneEditor : MonoBehaviour
     {
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
         time = GameObject.Find("GameManager").GetComponent<TimeController>();
+        task = GameObject.Find("GameManager").GetComponent<TaskManager>();
     }
 
 
     private void Update()
     {
-      if(happiness.getHappiness() <= 0)
+        Debug.Log(time.IsTimeZero().ToString()) ;
+
+        if (happiness.getHappiness() <= 0)
         {
             LoseScreen();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-        if (time.IsTimeZero())
+        else if (time.IsTimeZero())
         {
+
             if (task.AllTaskComplete())
             {
                 WinScreen();
@@ -42,7 +46,7 @@ public class SceneEditor : MonoBehaviour
             }
         }
     }
-    
+
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
