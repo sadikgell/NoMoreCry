@@ -122,7 +122,7 @@ public class BabyActions : MonoBehaviour
             actionAvailable = true;
         }
         counter -= Time.deltaTime;
-        Debug.Log("Counter: " + counter);
+        //Debug.Log("Counter: " + counter);
     }
 
     void BabyCry()
