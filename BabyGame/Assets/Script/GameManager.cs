@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         task2 = GameObject.Find("Task2").GetComponent<TextMeshPro>();
 
         toys = GameObject.Find("Toys");
-        toyCount = 1;
+        toyCount = 8;
         Debug.Log(toyCount);
 
     }

@@ -130,7 +130,6 @@ public class ToyCollect : MonoBehaviour
         Debug.Log(other.transform.position + "ÖNCESÝ");
         other.transform.position = toyArea.position;
         other.transform.rotation = toyArea.rotation;
-        other.transform.localScale = toyArea.localScale;
         Debug.Log(other.transform.position + "SONRASI");
         Debug.Log(toyArea);
         
