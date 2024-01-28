@@ -83,6 +83,9 @@ public class SceneEditor : MonoBehaviour
     {
         SceneManager.LoadScene(7);
     }
-
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 }
