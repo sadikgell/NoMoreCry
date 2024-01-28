@@ -41,7 +41,7 @@ public class VoiceLinesController : MonoBehaviour
             fedChocolate = false;
             //Debug.Log("Çikolata verildi.");
         }
-        else if (happiness.getHappiness() >= 75f && actionAvailable)
+        else if (happiness.getHappiness() >= 85f && actionAvailable)
         {
             audioSource.PlayOneShot(voiceLines[1]); // aint half bad
             actionAvailable = false;

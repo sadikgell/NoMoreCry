@@ -16,6 +16,7 @@ public class Interaction : MonoBehaviour
 
     public bool isInteractBaby;
 
+    private AudioSource tvAudio;
     void Update()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -51,6 +52,24 @@ public class Interaction : MonoBehaviour
                     }
                     //Debug.Log($"isInteract :{isInteract}");
                     //Debug.Log($"interactableObject :{interactableObject}");
+                }
+            }
+            if (hit.collider.gameObject.tag == "TV")
+            {
+                // Null referans kontrolü ekleyin
+                if (hit.collider.gameObject.transform.parent != null)
+                {
+                    tvAudio = hit.collider.gameObject.transform.parent.GetComponent<AudioSource>();
+
+                    // Float deðerleri karþýlaþtýrmak için Mathf.Approximately kullanýn
+                    if (Input.GetMouseButtonDown(1) && Mathf.Approximately(tvAudio.volume, 0.1f))
+                    {
+                        tvAudio.volume = 0f;
+                    }
+                    else if (Input.GetMouseButtonDown(0) && Mathf.Approximately(tvAudio.volume, 0))
+                    {
+                        tvAudio.volume = 0.1f;
+                    }
                 }
             }
         }
