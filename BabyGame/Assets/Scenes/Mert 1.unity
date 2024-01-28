@@ -23918,6 +23918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b9644469fd8614992ef63a763e2c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
+  isActiveVoice: 1
   PauseM: {fileID: 0}
 --- !u!1 &1325553642
 GameObject:
@@ -30655,7 +30657,7 @@ GameObject:
   - component: {fileID: 1754745892}
   - component: {fileID: 1754745891}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PauseM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
