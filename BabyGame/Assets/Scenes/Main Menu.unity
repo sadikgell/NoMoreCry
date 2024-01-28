@@ -891,7 +891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Help
+  m_text: Tutorial
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0fa651bed67dc6488a8239b96a35252, type: 2}
   m_sharedMaterial: {fileID: -6713788700770951150, guid: b0fa651bed67dc6488a8239b96a35252, type: 2}
@@ -1722,6 +1722,7 @@ GameObject:
   - component: {fileID: 2097675624}
   - component: {fileID: 2097675623}
   - component: {fileID: 2097675622}
+  - component: {fileID: 2097675625}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1792,7 +1793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2097675623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097675625}
+        m_TargetAssemblyTypeName: SceneEditor, Assembly-CSharp
+        m_MethodName: TutorialScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2097675623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,6 +1844,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097675620}
   m_CullTransparentMesh: 1
+--- !u!114 &2097675625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097675620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc875fa450eaea499b6d93e4453628b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happiness: {fileID: 0}
+  time: {fileID: 0}
+  task: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
