@@ -23,16 +23,22 @@ public class SceneEditor : MonoBehaviour
       if(happiness.getHappiness() <= 0)
         {
             LoseScreen();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         if (time.IsTimeZero())
         {
             if (task.AllTaskComplete())
             {
                 WinScreen();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
             else
             {
                 LoseScreen();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
@@ -44,6 +50,10 @@ public class SceneEditor : MonoBehaviour
     public void GoMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void StartLevel1()
+    {
+        SceneManager.LoadScene(2);
     }
     public void WinScreen()
     {
