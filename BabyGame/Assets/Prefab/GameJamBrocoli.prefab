@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.218
+      value: 20.635305
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.639
+      value: 1.275
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.563
+      value: 22.622414
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,13 +60,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
       propertyPath: m_Name
       value: GameJamBrocoli
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
       propertyPath: m_TagString
       value: InteractNeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 74a21d64b8686194d8d53df30f54bf6e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,14 +8,16 @@ TagManager:
   - InteractPos
   - InteractNeg
   - Chocolate
+  - HotChocolate
+  - TV
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interact
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

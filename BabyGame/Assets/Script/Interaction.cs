@@ -29,6 +29,9 @@ public class Interaction : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hit.point, Color.red);
 
+            Debug.Log(hit.collider.gameObject.name.ToString());
+
+
             if (hit.distance <= distance &&
                 (hit.collider.gameObject.tag == "InteractNeg" ||
                 hit.collider.gameObject.tag == "InteractPos" ||
@@ -56,13 +59,15 @@ public class Interaction : MonoBehaviour
             }
             if (hit.collider.gameObject.tag == "TV")
             {
+               
                 // Null referans kontrolü ekleyin
-                if (hit.collider.gameObject.transform.parent != null)
+                if (hit.collider.gameObject.transform.GetChild(1) != null)
                 {
-                    tvAudio = hit.collider.gameObject.transform.parent.GetComponent<AudioSource>();
+                   
+                    tvAudio = hit.collider.gameObject.transform.GetChild(1).GetComponent<AudioSource>();
 
                     // Float deðerleri karþýlaþtýrmak için Mathf.Approximately kullanýn
-                    if (Input.GetMouseButtonDown(1) && Mathf.Approximately(tvAudio.volume, 0.1f))
+                    if (Input.GetMouseButtonDown(0) && Mathf.Approximately(tvAudio.volume, 0.1f))
                     {
                         tvAudio.volume = 0f;
                     }

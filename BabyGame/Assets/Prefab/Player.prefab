@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2586206669833663657}
   - component: {fileID: 5427831044083620573}
   - component: {fileID: 3212493974852905651}
-  m_Layer: 0
+  - component: {fileID: 4294744458920560949}
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -112,6 +113,22 @@ MonoBehaviour:
   maxDistanceFromPlayer: 1.5
   dropDistanceThreshold: 1.5
   maxDropDistance: 5
+  isInteractBaby: 0
+--- !u!114 &4294744458920560949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348014411798705037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7568983e6f126dc4c9a3cad7ce424b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 0}
+  interactOutline: {fileID: 0}
+  interactableDistance: 5
 --- !u!1 &8567673480332412374
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +146,7 @@ GameObject:
   - component: {fileID: 4841874173516480742}
   - component: {fileID: 5301457106587416210}
   - component: {fileID: 2537522426487321091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

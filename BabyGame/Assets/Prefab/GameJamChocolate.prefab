@@ -65,6 +65,10 @@ PrefabInstance:
       value: GameJamChocolate
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac94ea89bc6b3734ab453c2bbaadc152, type: 3}
       propertyPath: m_TagString
       value: InteractPos
       objectReference: {fileID: 0}
