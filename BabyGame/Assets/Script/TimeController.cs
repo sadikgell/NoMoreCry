@@ -52,6 +52,11 @@ public class TimeController : MonoBehaviour
         }
     }
 
+    public bool IsTimeZero()
+    {
+        return remainingTime <= 0f;
+    }
+
     private void GetRemainingTime()
     {
         int minutes = Mathf.FloorToInt(remainingTime / 60F);
