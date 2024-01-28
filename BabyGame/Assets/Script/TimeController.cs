@@ -10,6 +10,7 @@ public class TimeController : MonoBehaviour
     public float speedUp = 0f; 
     public string remainingTimeText = "5:00"; // Timer'ý oyun içinde kullanýrken direkt bu deðiþkeni kullanýn.
     private TextMeshProUGUI timerText;
+    private TextMeshPro microWaveText;
      
     void Start()
     {
@@ -17,6 +18,7 @@ public class TimeController : MonoBehaviour
         try
         {
             timerText = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
+            microWaveText = GameObject.Find("TIMER").GetComponent<TextMeshPro>();
         }
         catch (Exception e)
         {
@@ -48,7 +50,8 @@ public class TimeController : MonoBehaviour
     {
         if (timerText != null)
         {
-            timerText.text = remainingTimeText;
+            timerText.text  = remainingTimeText;
+            microWaveText.text = remainingTimeText;
         }
     }
 

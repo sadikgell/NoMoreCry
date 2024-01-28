@@ -21,7 +21,7 @@ public class SceneEditor : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(time.IsTimeZero().ToString()) ;
+       
 
         if (happiness.getHappiness() <= 0)
         {
@@ -68,6 +68,10 @@ public class SceneEditor : MonoBehaviour
     {
         //2 temsili index sayýsý en son tekrar deðiþtilir
         SceneManager.LoadScene(3);
+    }
+    public void SettingsScreen()
+    {
+        SceneManager.LoadScene(6);
     }
 
 
