@@ -13,6 +13,7 @@ public class BabyActions : MonoBehaviour
     public List<Material> deriler = new List<Material>();
     private AudioSource babyAudioSource; 
     private Happiness happiness;
+    private SceneEditor sceneEditor;
     private Interaction interaction;
     private Boolean firstChocolate = true;
     [SerializeField] private float counter = 0f;
@@ -24,6 +25,7 @@ public class BabyActions : MonoBehaviour
 
     void Start()
     { 
+        sceneEditor = GameObject.Find("GameManager").GetComponent<SceneEditor>();
         happiness = GameObject.Find("GameManager").GetComponent<Happiness>();
         interaction = GameObject.Find("Main Camera").GetComponent<Interaction>(); 
         babyAudioSource = GetComponent<AudioSource>();
@@ -129,8 +131,8 @@ public class BabyActions : MonoBehaviour
     {
         smr.SetMaterials(new List<Material> { deriler[1] });  
         babyAudioSource.PlayOneShot(babyVoices[2]); 
-        anim.SetTrigger("Cry"); 
-        //TODO: Game over ekraný.
+        anim.SetTrigger("Cry");
+
     }
 
     void FixedUpdate()
@@ -139,8 +141,7 @@ public class BabyActions : MonoBehaviour
         {
             //babyAudioSource.Stop();
             if (happiness.getHappiness() > 70f)
-            {
-                
+            { 
                 BabyHappyReact();
             }
             else if (happiness.getHappiness() < 30f)
@@ -163,7 +164,13 @@ public class BabyActions : MonoBehaviour
             MakeBabyHappy(2);
             babeSwingLimit--;
             Debug.Log($"{happiness.getHappiness()} :mutluluk  || {babeSwingLimit} : sallama limiti");
-        } 
+        }
+
+        if (happiness.getHappiness() <= 0f)
+        {
+            //Game over. 
+            sceneEditor.LoseScreen();
+        }
 
         Counter();
     }

@@ -77,4 +77,9 @@ public class TimeController : MonoBehaviour
     {
         return gameRunningState;
     }
+
+    public float getRemainingTime()
+    {
+        return remainingTime;
+    }
 }
