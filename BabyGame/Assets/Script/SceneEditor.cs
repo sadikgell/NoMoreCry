@@ -74,5 +74,10 @@ public class SceneEditor : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
+    public void TutorialScreen()
+    {
+        SceneManager.LoadScene(7);
+    }
+
 
 }
