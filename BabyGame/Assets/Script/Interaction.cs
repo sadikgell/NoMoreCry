@@ -29,7 +29,7 @@ public class Interaction : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hit.point, Color.red);
 
-            Debug.Log(hit.collider.gameObject.name.ToString());
+            //Debug.Log(hit.collider.gameObject.name.ToString());
 
 
             if (hit.distance <= distance &&

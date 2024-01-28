@@ -87,5 +87,4 @@ public class SceneEditor : MonoBehaviour
     {
         Application.Quit();
     }
-
 }
