@@ -69,6 +69,11 @@ public class SceneEditor : MonoBehaviour
         //2 temsili index sayýsý en son tekrar deðiþtilir
         SceneManager.LoadScene(3);
     }
+    public void CreditsScreen()
+    {
+        //2 temsili index sayýsý en son tekrar deðiþtilir
+        SceneManager.LoadScene(5);
+    }
     public void SettingsScreen()
     {
         SceneManager.LoadScene(6);
