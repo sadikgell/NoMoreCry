@@ -11,11 +11,20 @@ public class PauseMenu : MonoBehaviour
     public bool isActiveVoice = true;
     public GameObject PauseM;
 
+    private AudioSource playerAudio;
+    private AudioSource TVAudio;
+    private AudioSource BabyAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
 
         PauseM = GameObject.Find("PauseM");
+
+        playerAudio = GameObject.Find("Player").GetComponent<AudioSource>();
+        TVAudio = GameObject.Find("GameJamTV").GetComponent<AudioSource>();
+        BabyAudio = GameObject.Find("Bebe").GetComponent<AudioSource>();
         Resume();
            
     }
@@ -64,6 +73,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         isActive = false;
         Debug.Log("Resume");
+        TVAudio.UnPause();
+        playerAudio.UnPause();
+        BabyAudio.UnPause();
     }
     public void Pause()
     {
@@ -71,5 +83,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         isActive = true;
         Debug.Log("Pause");
+        TVAudio.Pause();
+        playerAudio.Pause();
+        BabyAudio.Pause();
     }
 }
